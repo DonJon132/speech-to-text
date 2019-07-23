@@ -1,6 +1,8 @@
 const btn = document.querySelector('.talk');
 const content = document.querySelector('.content');
 
+const greetings = ['Im good you fucker', 'Im good you fucker', 'leave me alone'];
+
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
@@ -23,7 +25,12 @@ btn.addEventListener('click', () => {
 
 function ReadOutLoud(message){
     const speech = new SpeechSynthesisUtterance();
-    speech.text = message;
+
+    if(message.includes('how are you')){
+        const finalText = greetings[Math.floor(Math.random() * greetings.length)];
+        speech.text = finalText;
+    }
+    
     speech.volume = 1;
     speech.rate = 1;
     speech.pitch = 1;
