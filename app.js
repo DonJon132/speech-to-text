@@ -1,7 +1,7 @@
 const btn = document.querySelector('.talk');
 const content = document.querySelector('.content');
 
-const greetings = ['Im good you fucker', 'Im good you fucker', 'leave me alone'];
+const greetings = ['Im good you fucker', 'the fuck is up dude', 'okay rako nano man'];
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -29,6 +29,9 @@ function ReadOutLoud(message){
     if(message.includes('how are you')){
         const finalText = greetings[Math.floor(Math.random() * greetings.length)];
         speech.text = finalText;
+    }
+    else{
+        speech.text = message;
     }
     
     speech.volume = 1;
